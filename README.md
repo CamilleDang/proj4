@@ -49,11 +49,18 @@ I performed the same rectification on this painting from an art gallery in Seatt
 |:-------------------------:|:-------------------------:|
 |<img width="400" src="art.jpg"> |  <img width="400" src="artres.jpg"> |
 
+As seen above for these two examples, homography worked successfully in order to warp an image into a desired shape.
+
 # Part 4. Warping
 
-
+After performing rectification and confirming successful homography, I extended this application to warp images into each other to create a mosaic. Similarly to the above logic, I warped one image to the other like such:
+1. Retrieve the correspondence points I chose in Part 2 for each pair of images.
+2. Compute the homography matrix between the correspondence points of the two images.
+3. Multiply the homography matrix by the correspondence points in Image 1 to get the estimated dimension of the warped image.
+4. Calculate a *translated* matrix to get the points to a positive domain, if it's 
 
 # Part 5. Mosaic Blending
+
 
 
 
