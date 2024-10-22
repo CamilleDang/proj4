@@ -98,27 +98,30 @@ Here is an example:
 |:-------------------------:|:-------------------------:|
 |<img width="400" src="grove_comb.jpg"> |  <img width="400" src="grove_high.jpg"> |
 
-And here are the results of all 3 mosaics! 
+### And here are the results of all 3 mosaics! 
 
 | Original BAIR 1 Image | Warped BAIR 1 Image | BAIR Image 2 |
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="300" src="bair1.jpg"> |<img width="300" src="estimated.jpg"> |  <img width="300" src="bair2.jpg"> |
 
-BAIR Mosaic
+**BAIR Mosaic**
+
 <img width="500" src="final_blended_image.jpg">
 
 | Original Grove 1 Image | Warped Grove Image 1 | Grove Image 2 | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="300" src="grove1.jpg"> |  <img width="300" src="grovetry.jpg"> | <img width="300" src="grove2.jpg"> |
 
-Grove Mosaic
+**Grove Mosaic**
+
 <img width="500" src="grove_final.jpg">
 
 | Original VLSB 1 Image | Warped VLSB Image 1 | VLSB Image 2  | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="300" src="vlsb1.jpg"> |  <img width="300" src="vlsbtry.jpg"> | <img width="300" src="vlsb2.jpg"> |
 
-VLSB Mosaic
+**VLSB Mosaic**
+
 <img width="500" src="vlsb_final.jpg">
 
 
