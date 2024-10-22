@@ -96,21 +96,21 @@ Here is an example:
 
 | Combined Grove Low Frequency | Combined Grove High Frequency | 
 |:-------------------------:|:-------------------------:|
-|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> |
+|<img width="400" src="grove_comb.jpg"> |  <img width="400" src="grove_high.jpg"> |
 
 And here are the results of all 3 mosaics! 
 
 | Warped BAIR 1 Image | BAIR Image 2 | BAIR Mosaic | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> | <img width="400" src="grove2_dist.jpg"> |
+|<img width="400" src="estimated.jpg"> |  <img width="400" src="bair2.jpg"> | <img width="400" src="final_blended_image.jpg"> |
 
 | Warped Grove 1 Image | Grove Image 2 | Grove Mosaic | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> | <img width="400" src="grove2_dist.jpg"> |
+|<img width="400" src="grovetry.jpg"> |  <img width="400" src="grove2.jpg"> | <img width="400" src="grove_final.jpg"> |
 
 | Warped VLSB 1 Image | VLSB Image 2 | VLSB Mosaic | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> | <img width="400" src="grove2_dist.jpg"> |
+|<img width="400" src="vlsbtry.jpg"> |  <img width="400" src="vlsb2.jpg"> | <img width="400" src="vlsb_final.jpg"> |
 
 
 
