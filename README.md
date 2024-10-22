@@ -100,17 +100,26 @@ Here is an example:
 
 And here are the results of all 3 mosaics! 
 
-| Warped BAIR 1 Image | BAIR Image 2 | BAIR Mosaic | 
+| Original BAIR 1 Image | Warped BAIR 1 Image | BAIR Image 2 |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="estimated.jpg"> |  <img width="400" src="bair2.jpg"> | <img width="400" src="final_blended_image.jpg"> |
+|<img width="300" src="bair1.jpg"> |<img width="300" src="estimated.jpg"> |  <img width="300" src="bair2.jpg"> |
 
-| Warped Grove 1 Image | Grove Image 2 | Grove Mosaic | 
-|:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="grovetry.jpg"> |  <img width="400" src="grove2.jpg"> | <img width="400" src="grove_final.jpg"> |
+BAIR Mosaic
+<img width="500" src="final_blended_image.jpg">
 
-| Warped VLSB 1 Image | VLSB Image 2 | VLSB Mosaic | 
+| Original Grove 1 Image | Warped Grove Image 1 | Grove Image 2 | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="vlsbtry.jpg"> |  <img width="400" src="vlsb2.jpg"> | <img width="400" src="vlsb_final.jpg"> |
+|<img width="300" src="grove1.jpg"> |  <img width="300" src="grovetry.jpg"> | <img width="300" src="grove2.jpg"> |
+
+Grove Mosaic
+<img width="500" src="grove_final.jpg">
+
+| Original VLSB 1 Image | Warped VLSB Image 1 | VLSB Image 2  | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="300" src="vlsb1.jpg"> |  <img width="300" src="vlsbtry.jpg"> | <img width="300" src="vlsb2.jpg"> |
+
+VLSB Mosaic
+<img width="500" src="vlsb_final.jpg">
 
 
 
