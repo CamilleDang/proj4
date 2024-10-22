@@ -26,7 +26,7 @@ After shooting these pairs of images, I selected 8 correspondence points for eac
 I then wrote a function to compute the homography matrix, given a set of 4+ points for two images. 
 Here's an example of correspondence points I picked for the nature images:
 
-| Nature Image 1 Correspondence Points | Nature Image 2 Correspondence Points | 
+| VLSB Image 1 Correspondence Points | VLSB Image 2 Correspondence Points | 
 |:-------------------------:|:-------------------------:|
 |<img width="400" src="vlsb1_pts.png"> |  <img width="400" src="vlsb2_pts.png"> |
 
