@@ -10,15 +10,15 @@ I started by taking several images of various environments, keeping the center o
 
 | BAIR Image 1 | BAIR Image 2 | 
 |:-------------------------:|:-------------------------:|
-|<img width="400" src="ma_delaunay.png"> |  <img width="400" src="cam_delaunay.png"> |
+|<img width="400" src="bair1.jpg"> |  <img width="400" src="bair2.jpg"> |
 
 | Grove Image 1 | Grove Image 2 | 
 |:-------------------------:|:-------------------------:|
-|<img width="400" src="ma_delaunay.png"> |  <img width="400" src="cam_delaunay.png"> |
+|<img width="400" src="grove1.jpg"> |  <img width="400" src="grove2.jpg"> |
 
-| Nature Image 1 | Nature Image 2 | 
+| VLSB Hallway Image 1 | VLSB Hallway Image 2 | 
 |:-------------------------:|:-------------------------:|
-|<img width="400" src="ma_delaunay.png"> |  <img width="400" src="cam_delaunay.png"> |
+|<img width="400" src="vlsb1.jpg"> |  <img width="400" src="vlsb2.jpg"> |
 
 #  Part 2. Defining Homographies
 
