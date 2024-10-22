@@ -56,10 +56,63 @@ As seen above for these two examples, homography worked successfully in order to
 After performing rectification and confirming successful homography, I extended this application to warp images into each other to create a mosaic. Similarly to the above logic, I warped one image to the other like such:
 1. Retrieve the correspondence points I chose in Part 2 for each pair of images.
 2. Compute the homography matrix between the correspondence points of the two images.
-3. Multiply the homography matrix by the correspondence points in Image 1 to get the estimated dimension of the warped image.
-4. Calculate a *translated* matrix to get the points to a positive domain, if it's 
+3. Multiply the homography matrix by the **corner points** in Image 1 to get the estimated dimension of the warped image.
+4. Calculate the *translatation* needed to get these corner points to a positive domain and store this as the translated corners of warped image 1.
+5. Use these translated corners to estimate dimension of mosaic (warped Image 1 + Image 2)
+6. Use `skimage.draw.polygon` to select all the positive points from the new warped image 1 and use inverse warping on the **non-shifted** points to retrieve the original points.
+7. Use interpolation to place corresponding colors from the original image into the positive warped positions.
+
+Following these steps, I warped all the first images in the 3 pairs to the corresponding second images. Here were the results:
+
+| Original BAIR Image 1 | Warped BAIR Image 1 |
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1.jpg"> |  <img width="400" src="estimated.jpg"> |
+
+| Original Grove Image 1 | Warped Grove Image 1 | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="grove1.jpg"> |  <img width="400" src="grovetry.jpg"> |
+
+| Original VLSB Image 1 | Warped VLSB Image 1 | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="vlsb1.jpg"> |  <img width="400" src="vlsbtry.jpg"> |
 
 # Part 5. Mosaic Blending
+
+With these warped images, it was time to blend the warped image 1 with the corresponding image 2 to create a mosaic!
+For each warped image, I mapped the corresponding image 2 into the correct position onto an empty image in the dimensions of the two images combined. *To do this, I shifted Image 2 by the same x and y shift from Part 4 to get the warped Image 1 to the positive domain.*
+
+I then used 2-band blending to blend the Warped Image 1 and Image 2 together.
+I first computed the distance transform for both images (`scipy.ndimage.distance_transform_edt`), using the Euclidean distance as measurement. 
+
+Here is an example of the distance transform of the warped VLSB image 1 and VLSB image 2:
+
+| Warped Grove Image 1 Distance Transform | Grove Image 2 Distance Transform | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> |
+
+Using the distance transform, I blended the low frequency components of the two images by using the distance transform as the weights in a linear combination of warped Image 1 and Image 2. I then blended the high frequency components of the two images by taking the corresponding value of an image based on which distance transform had a higher value for that point. Lastly, I combined the blended low frequency components and the blended high frequency components to end up with a smoothly blended mosaic image. For these three examples, I actually had a pretty good result for just blending the lower frequency components (even though it did blur some details), so I tended to weigh it higher when combining the low frequency and high frequency components, since the high frequency components added some strong edges / artifacts.
+
+Here is an example:
+
+| Combined Grove Low Frequency | Combined Grove High Frequency | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> |
+
+And here are the results of all 3 mosaics! 
+
+| Warped BAIR 1 Image | BAIR Image 2 | BAIR Mosaic | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> | <img width="400" src="grove2_dist.jpg"> |
+
+| Warped Grove 1 Image | Grove Image 2 | Grove Mosaic | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> | <img width="400" src="grove2_dist.jpg"> |
+
+| Warped VLSB 1 Image | VLSB Image 2 | VLSB Mosaic | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="grove1_dist.jpg"> |  <img width="400" src="grove2_dist.jpg"> | <img width="400" src="grove2_dist.jpg"> |
+
+
 
 
 
