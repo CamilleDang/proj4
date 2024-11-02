@@ -238,7 +238,7 @@ The first 2 examples were one that I did manually as well. I put both the manual
 
 | Manually Stitched Mosaic | Autostitched Mosaic | 
 |:-------------------------:|:-------------------------:|
-|<img width="400" src="vlsb_final.jpg"> |  <img width="400" src="autobair12final.jpg"> |
+|<img width="400" src="vlsb_final.jpg"> |  <img width="400" src="vlsb_final2.jpg"> |
 
 ### Example 3: Room Mosaic
 
