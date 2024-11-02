@@ -129,9 +129,108 @@ Here is an example:
 
 <img width="500" src="vlsb_final.jpg">
 
+# Project 4b: Autosticthing Mosaics
 
+# Overview
 
+In this part of the project, I followed implementations from the paper Multi-Image Matching using Multi-Scale Oriented Patches (MOPS), specifically Section 2, 3, 4, and 5, which enable us to blend images to create panoramas without manually selecting correspondence points.
 
+## Harris Interest Point Detector (Section 2)
+
+Using the starter code harris.py provided in the spec, I calculated the harris points of the image by converting the image to grayscale and then running get_harris_corners on the image. I ended up increasing sigma to 10 to get around ~4,000 points (instead of ~300,000 with sigma 1), which made the next steps (feature descriptor extraction and feature matching) much easier and faster to run. 
+
+Here's an example of the Harris points on this picture of BAIR:
+
+| Original BAIR Image | BAIR Harris Points | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1.jpg"> |  <img width="400" src="bair1_harris.png"> |
+
+## Adaptive Non-Maximal Suppression (Section 3)
+
+To then narrow down the number of points extracted by the Harris Corner detection, I followed along with Section 3 of the MOPS paper to perform "Adaptive Non-Maximal Suppression" (ANMS). To ensure both strong corners and good spatial distribution across the image, we follow these steps:
+
+1. Each corner's strength is obtained from the Harris response matrix
+2. Using pairwise distance calculations between corners, I created a distance matrix.
+3. Compare corner strengths using the threshold c_robust (I used a default of 0.9 like the paper) to identify stronger corners.
+4. I then filtered the distances based on these strength comparisons
+5. For each corner, find its minimum distance to a stronger corner
+6. Finally, corners are ranked by these minimum distances, and the top num_corners (I used a default of 200 points) are selected
+
+This approach ensures we get strong corners that are well-distributed throughout the image, rather than clustering all selected corners in a few high-response regions.
+
+Here is an example of the original ~4,000 Harris points and the 200 strongest corners after applying ANMS:
+
+| BAIR Harris Points | BAIR ANMS Points | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> |
+
+## Feature Descriptor extraction (Section 4)
+
+For each selected corner point, we can create a feature descriptor by:
+
+1. Taking a 40x40 pixel patch around each corner
+2. Resizing each patch to 8x8 using interpolation
+3. Normalizing each color channel by subtracting its mean and dividing by its standard deviation
+4. Flattening the normalized 8x8x3 patch into a 192-dimensional vector
+
+This process is applied to all images in the mosaic, resulting in two feature matrices where each row represents one corner's descriptor.
+
+Here are examples of some of the 8x8 patches of "feature descriptors" on :
+
+<img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png">
+<img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png">
+ 
+## Feature Matching (Section 5)
+
+We then match features between the two images using a nearest-neighbor approach with Lowe's ratio test:
+
+1. Calculate distances between all feature pairs from both images using sum of squared differences (SSD)
+2. For each feature in the first image, find its two closest matches in the second image
+3. Apply Lowe's ratio test: compare the distances to the closest and second-closest matches
+4. Keep only the matches where the ratio is below the lowe_threshold (which I put as 0.5), indicating a strong unique match
+5. Create pairs of indices representing the matched features between the two images
+6. Filter these pairs using the Lowe ratio criterion
+
+This approach ensures we only keep high-confidence matches where a feature has a clear best match, reducing false correspondences between the images.
+
+Here is an example of 
+
+## 4-point RANSAC
+
+Following Section 5 of the MOPS paper, we use RANSAC (Random Sample Consensus) to find a robust homography between images by:
+
+1. Repeatedly sampling 4 random point pairs from our matches
+2. Computing a test homography from each sample (using the same computeH function from part A of the project)
+3. Transforming all source points using this homography
+4. Calculating distances between transformed points and their target locations
+5. Counting how many points align within a threshold distance (inliers) -- I used a threshold of 0.8
+6. Keeping track of the sample that produces the most inliers
+
+The final homography is computed using all inlier points from the best sample. We use RANSAC to eliminate incorrect matches and find a transformation that works well for the majority of correct correspondences.
+
+Here is an example of the final correspondence points after running RANSAC on the BAIR image:
+
+| BAIR Harris Points | BAIR ANMS Points | BAIR RANSAC Points | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
+
+## Warp & Blend Images
+
+Using these automatic correspondence points, I warped and blended the pairs of images, using the same functions as the previous part, to create 3 mosaics!
+
+The first 2 examples were one that I did manually as well. I put both the manually stitched and autostitched mosaics side-by-side for comparison! 
+
+| BAIR 1 Image | BAIR 2 Image | BAIR Points | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
+
+| BAIR Harris Points | BAIR ANMS Points | BAIR RANSAC Points | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
+
+| BAIR Harris Points | BAIR ANMS Points | BAIR RANSAC Points | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
 
 
 
