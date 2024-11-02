@@ -177,8 +177,8 @@ This process is applied to all images in the mosaic, resulting in two feature ma
 
 Here are examples of some of the 8x8 patches of "feature descriptors" on :
 
-<img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png">
-<img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png"> <img width="300" src="bair1_harris.png">
+<img width="300" src="patch_2.jpg"> <img width="300" src="patch_50.jpg"> <img width="300" src="patch_74.jpg">
+<img width="300" src="patch_40.jpg"> <img width="300" src="patch_7.jpg"> <img width="300" src="patch_90.jpg">
  
 ## Feature Matching (Section 5)
 
@@ -242,9 +242,12 @@ The first 2 examples were one that I did manually as well. I put both the manual
 
 ### Example 3: Room Mosaic
 
-| BAIR Harris Points | BAIR ANMS Points | BAIR RANSAC Points | 
+| Room 1 Image | Room 2 Image | Autostitched Mosaic | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
+|<img width="400" src="room1.jpg"> |  <img width="400" src="room2.jpg"> | <img width="400" src="room_final.jpg"> |
 
+## What I Learned
 
+Overall, this project was really challenging, and taught me the importance of image quality when performing functions such as finding correspondence points or making a realistic 
+It took me several tries to generate the mosaics I displayed on this webpage, and a lot of other tries had to be scrapped due to lighting changes (especially when using the iPhone), or accidentally rotating the center of projection too much by not keeping the hand steady when rotating.
 
