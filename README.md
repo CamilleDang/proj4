@@ -223,7 +223,7 @@ Here is an example of the final correspondence points after running RANSAC on th
 
 Using these automatic correspondence points, I warped and blended the pairs of images, using the same functions as the previous part, to create 3 mosaics!
 
-The first 2 examples were one that I did manually as well. I put both the manually stitched and autostitched mosaics side-by-side for comparison! 
+The first example was one that I did manually as well. I put both the manually stitched and autostitched mosaics side-by-side for comparison! 
 
 ### Example 1: BAIR Mosaic
 
@@ -235,15 +235,11 @@ The first 2 examples were one that I did manually as well. I put both the manual
 |:-------------------------:|:-------------------------:|
 |<img width="400" src="final_blended_image.jpg"> |  <img width="400" src="autobair12final.jpg"> |
 
-### Example 2: VLSB Mosaic
+### Example 2: Doe Mosaic
 
-| VLSB 1 Image | VLSB 2 Image | 
-|:-------------------------:|:-------------------------:|
-|<img width="400" src="vlsb1.jpg"> |  <img width="400" src="vlsb2.jpg"> |
-
-| Manually Stitched Mosaic | Autostitched Mosaic | 
-|:-------------------------:|:-------------------------:|
-|<img width="400" src="vlsb_final.jpg"> |  <img width="400" src="vlsb_final2.jpg"> |
+| Doe 1 Image | Doe 2 Image | Autostitched Mosaic | 
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="400" src="doe1.jpg"> |  <img width="400" src="doe2.jpg"> | <img width="400" src="doe_final.jpg"> |
 
 ### Example 3: Room Mosaic
 
