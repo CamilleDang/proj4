@@ -220,13 +220,27 @@ Using these automatic correspondence points, I warped and blended the pairs of i
 
 The first 2 examples were one that I did manually as well. I put both the manually stitched and autostitched mosaics side-by-side for comparison! 
 
-| BAIR 1 Image | BAIR 2 Image | BAIR Points | 
-|:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
+### Example 1: BAIR Mosaic
 
-| BAIR Harris Points | BAIR ANMS Points | BAIR RANSAC Points | 
-|:-------------------------:|:-------------------------:|:-------------------------:|
-|<img width="400" src="bair1_harris.png"> |  <img width="400" src="bair1_anms.png"> | <img width="400" src="bair1_mask.png"> |
+| BAIR 1 Image | BAIR 2 Image | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="bair1.jpg"> |  <img width="400" src="bair2.jpg"> |
+
+| Manually Stitched Mosaic | Autostitched Mosaic | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="final_blended_image.jpg"> |  <img width="400" src="autobair12final.jpg"> |
+
+### Example 2: VLSB Mosaic
+
+| VLSB 1 Image | VLSB 2 Image | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="vlsb1.jpg"> |  <img width="400" src="vlsb2.jpg"> |
+
+| Manually Stitched Mosaic | Autostitched Mosaic | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="vlsb_final.jpg"> |  <img width="400" src="autobair12final.jpg"> |
+
+### Example 3: Room Mosaic
 
 | BAIR Harris Points | BAIR ANMS Points | BAIR RANSAC Points | 
 |:-------------------------:|:-------------------------:|:-------------------------:|
