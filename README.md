@@ -256,3 +256,4 @@ The first 2 examples were one that I did manually as well. I put both the manual
 Overall, this project was really challenging, and taught me the importance of image quality when performing functions such as finding correspondence points or making a realistic 
 It took me several tries to generate the mosaics I displayed on this webpage, and a lot of other tries had to be scrapped due to lighting changes (especially when using the iPhone), or accidentally rotating the center of projection too much by not keeping the hand steady when rotating.
 
+I also keep seeing the application of the L2 norm in our projects, and think it's really cool to see something that I learned way back in EECS16A during freshman fall semester play such an integral role in higher application computer vision! Minimizing the distance is super important for finding the most similar pixels.
