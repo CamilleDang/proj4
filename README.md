@@ -177,8 +177,8 @@ This process is applied to all images in the mosaic, resulting in two feature ma
 
 Here are examples of some of the 8x8 patches of "feature descriptors" on :
 
-<img width="300" src="patch_2.jpg"> <img width="300" src="patch_50.jpg"> <img width="300" src="patch_74.jpg">
-<img width="300" src="patch_40.jpg"> <img width="300" src="patch_7.jpg"> <img width="300" src="patch_90.jpg">
+<img width="200" src="patch_2.jpg"> <img width="200" src="patch_50.jpg"> <img width="200" src="patch_74.jpg">
+<img width="200" src="patch_40.jpg"> <img width="200" src="patch_7.jpg"> <img width="200" src="patch_90.jpg">
  
 ## Feature Matching (Section 5)
 
@@ -193,7 +193,11 @@ We then match features between the two images using a nearest-neighbor approach 
 
 This approach ensures we only keep high-confidence matches where a feature has a clear best match, reducing false correspondences between the images.
 
-Here is an example of 
+Here is an example of correspondence points on a pair of images after feature matching:
+
+| VLSB 1 Feature Image | VLSB 2 Feature Image | 
+|:-------------------------:|:-------------------------:|
+|<img width="400" src="auto_vlsb1.png"> |  <img width="400" src="auto_vlsb2.png"> |
 
 ## 4-point RANSAC
 
